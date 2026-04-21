@@ -1,0 +1,322 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #0A0A23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+
+
+/* Ensure the header sits at the top of your flex body */
+.top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content:right; /* Pushes logo left and button right */
+    align-items: center;
+}
+
+.logout-btn {
+    padding: 8px 16px;
+    background-color: #dc3545; /* Bootstrap-style red */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: backgroun 0.3s ease;
+}
+
+.logout-btn:hover {
+    /* background-color: #c82333; */
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+
+/* Glassmorphism Card */
+.auth-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Input Styles */
+.form-group {
+    display:flex;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+}
+
+#add-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width:70px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #0A0A23;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* Previous styles remain... adding new components below */
+
+/* Home Page Specifics */
+.hero-content {
+    text-align: center;
+}
+
+.hero-content p {
+    margin: 1rem 0 2rem 0;
+    line-height: 1.6;
+    color: #cbd5e0;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+/* Task Dashboard */
+.stats-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+
+.stats-text h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.stats-text p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.progress-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-neon);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+/* ......... */
+
+.task-scroll-area {
+    max-height: 70px;
+    overflow-y:scroll;
+    margin: 20px 0;
+    padding-right: 5px;
+}
+
+/* Custom Scrollbar */
+.task-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+.task-scroll-area::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #4facfe;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.status-pending { background: #f6ad55; color: #2d3748; }
+.status-working { background: #4facfe; color: #fff; }
+.status-done { background: #68d391; color: #2d3748; }
+
+.clear-btn {
+    background: transparent;
+    border: 1px solid #fc8181;
+    color: #fc8181;
+    margin-top: 10px;
+}
+
+.clear-btn:hover {
+    background: #fc8181;
+    color: white;
+}
+
+/* 
+.flash
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display:flex;
+    flex:1;
+    justify-content:right;
+    align-items:center;
+    padding:10px;
+    border-radius:12px;
+    margin-bottom:20px;
+    background-color:#a06868;
+
+
+} */
+
+.flash {
+    position: fixed;
+    top: 20px; /* Gap from the top */
+    left: 50%;
+    transform: translateX(-50%); /* Perfectly centers the element */
+    
+    min-width: 300px;
+    padding: 15px 25px;
+    background-color: #fff3cd; /* Warning yellow */
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    text-align: center;
+    font-family: sans-serif;
+    z-index: 1000; /* Ensures it stays above the header and logout button */
+    
+    /* Optional: Fade-in animation */
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        top: -50px;
+        opacity: 0;
+    }
+    to {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+
+.input-error {
+    position: fixed;
+    top: -70px; /* Gap from the top */
+    left: 50%;
+    transform: translateX(-50%); /* Perfectly centers the element */
+    
+    min-width: 300px;
+    padding: 15px 25px;
+    background-color: #fff3cd; /* Warning yellow */
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    text-align: center;
+    font-family: sans-serif;
+    z-index: 1000; /* Ensures it stays above the header and logout button */
+    
+    /* Optional: Fade-in animation */
+    animation: Down 0.5s ease-out;
+}
+
+@keyframes Down {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: -70px;
+        opacity: 1;
+    }
+}

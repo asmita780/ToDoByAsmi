@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>My Tasks</title>
+</head>
+<body>
+    
+   <header class="top-bar">
+        <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+    </header>
+
+    <div class="auth-card">
+
+        <div class="stats-card">
+            <div class="stats-text">
+                <h2>Task Progress</h2>
+                <p>Keep grinding, you're almost there!</p>
+            </div>
+
+            <div class="progress-circle">
+                <span id="stat-count">{{c}}/{{tasks | length}}</span>
+            </div>
+        </div>        
+
+        <form action="{{ url_for('task.add') }}" method="POST">
+
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+
+                {{ form.title(placeholder="Enter a new task...") }}
+
+                {{ form.submit(id="add-btn") }}
+
+            </div>
+            
+        </form>
+
+        <div class="task-scroll-area">
+            {% for task in tasks %}
+            <div class="task-item">
+                <div>
+                    <p style="font-weight: 500;">{{ task[1] }}</p>
+                    <span class="status-badge status-{{ task[2].lower() }}">
+                        {{ task[2] }}
+                    </span>
+                </div>
+                
+                <form action="{{ url_for('task.update_status', task_id=task[0]) }}" method="POST">
+                    <button type="submit" style="width: auto; padding: 5px 12px; font-size: 0.8rem;">
+                        Next status
+                    </button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+        <form action="{{ url_for('task.clear_tasks') }}" method="POST">
+            <button type="submit" class="clear-btn">Clear All Tasks</button>
+        </form>
+
+    </div>
+
+    {% block content %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for mess in messages %}
+                    <div class="flash">{{mess}}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    {% endblock %}
+    
+</body>
+</html>
