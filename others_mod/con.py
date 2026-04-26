@@ -9,7 +9,8 @@ dbconfig = {
     "user": os.environ.get("DB_USER"),
     "password": os.environ.get("DB_PASSWORD"),
     "database": "test", # TiDB creates a 'test' database by default
-    "ssl_ca": "/etc/ssl/certs/ca-certificates.crt" # Required for TiDB security
+    "ssl_ca": "/etc/ssl/certs/ca-certificates.crt", # Required for TiDB security
+    "ssl_verify_cert": True
 }
 
 

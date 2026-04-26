@@ -51,7 +51,6 @@ def register():
                 session["user_id"] = user_data[0]
                 flash("You SignUp Successfuly!","success")
 
-                
             finally:
                 con.close()
                 cursor.close()
@@ -60,7 +59,7 @@ def register():
         else:
             flash("connection Error", "alert")
             return render_template("register.html", form = form)
-    print("else")
+        
     return render_template("register.html",form = form)
 
 
