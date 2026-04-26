@@ -1,12 +1,17 @@
 import mysql.connector
 from mysql.connector import pooling
+import os
 
-dbconfig = {  
-    "host":"localhost",
-    "user":"root",
-    "password":"root",
-    "database":"mytododb"
+
+dbconfig = {
+    "host": os.environ.get("DB_HOST"),
+    "port": os.environ.get("DB_PORT"),
+    "user": os.environ.get("DB_USER"),
+    "password": os.environ.get("DB_PASSWORD"),
+    "database": "test", # TiDB creates a 'test' database by default
+    "ssl_ca": "/etc/ssl/certs/ca-certificates.crt" # Required for TiDB security
 }
+
 
 connection_pool = pooling.MySQLConnectionPool( #creating pool
     pool_name = "mypool",
